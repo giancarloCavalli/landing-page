@@ -63,6 +63,28 @@ fragment sectionTech on LandingPage {
   }
 }
 
+fragment sectionConcepts on LandingPage {
+  sectionConcepts {
+    title
+    concepts {
+      id
+      title
+    }
+  }
+}
+
+fragment sectionModules on LandingPage {
+  sectionModules {
+    title
+    modules {
+      id
+      title
+      subtitle
+      description
+    }
+  }
+}
+
 query GET_LANDING_PAGE {
   landingPage {
     data {
@@ -71,6 +93,8 @@ query GET_LANDING_PAGE {
         ...header
         ...aboutProject
         ...sectionTech
+        ...sectionConcepts
+        ...sectionModules
       }
     }
   }
