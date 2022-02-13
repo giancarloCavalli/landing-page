@@ -31,7 +31,7 @@ fragment header on LandingPage {
   }
 }
 
-fragment sectionAboutProject on LandingPage {
+fragment aboutProject on LandingPage {
 	sectionAboutProject {
     title
     description
@@ -46,13 +46,31 @@ fragment sectionAboutProject on LandingPage {
   }
 }
 
+fragment sectionTech on LandingPage {
+  sectionTech {
+    title
+    techIcons {
+      title
+      image {
+        data {
+          attributes {
+            url
+            alternativeText
+          }
+        }
+      }
+    }
+  }
+}
+
 query GET_LANDING_PAGE {
   landingPage {
     data {
       attributes {
         ...logo
         ...header
-        ...sectionAboutProject
+        ...aboutProject
+        ...sectionTech
       }
     }
   }
