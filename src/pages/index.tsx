@@ -17,14 +17,14 @@ import { client } from 'graphql/client'
 import { GET_LANDING_PAGE } from 'graphql/queries/getLandingPage'
 import { LandingPageProps } from 'types/strapi-api'
 
-const Index = ({ logo, header, sectionAboutProject, sectionTech, sectionConcepts, sectionModules }: LandingPageProps) => (
+const Index = ({ logo, header, sectionAboutProject, sectionTech, sectionConcepts, sectionModules, sectionAgenda }: LandingPageProps) => (
   <>
     <SectionHero logo={logo} header={header} />
     <SectionAboutProject {...sectionAboutProject} />
     <SectionTech {...sectionTech} />
     <SectionConcepts {...sectionConcepts} />
     <SectionModules {...sectionModules} />
-    <SectionAgenda />
+    <SectionAgenda {...sectionAgenda} />
     <PricingBox />
     <SectionAboutUs />
     <SectionReviews />
