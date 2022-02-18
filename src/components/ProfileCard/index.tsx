@@ -1,26 +1,27 @@
 import React from 'react'
 
 import { GrGithub } from 'react-icons/gr'
-import { FaDribbble, FaTwitter } from 'react-icons/fa'
+import { FaDribbble, FaFacebook, FaInstagram, FaLinkedin, FaMedium, FaTwitter } from 'react-icons/fa'
 
 import * as S from './styles'
+import { SocialLink } from 'types/strapi-api'
+import { getImageUrl } from 'utils/getImageUrl'
 
 const icons = {
-  twitter: <FaTwitter />,
-  github: <GrGithub />,
-  dribbble: <FaDribbble />
-}
-
-type socialLinks = {
-  slug: string
-  link: string
+  Twitter: <FaTwitter />,
+  Github: <GrGithub />,
+  Dribbble: <FaDribbble />,
+  Linkedin: <FaLinkedin />,
+  Instagram: <FaInstagram />,
+  Facebook: <FaFacebook />,
+  Medium: <FaMedium />
 }
 
 type Props = {
   name: string
   role: string
   image: string
-  socialLinks: socialLinks[]
+  socialLinks: SocialLink[]
   description: string
 }
 
@@ -33,13 +34,8 @@ const ProfileCard: React.FC<Props> = ({
 }) => (
   <S.Card key={name}>
     <S.Image>
-      <source
-        srcSet={require(`@images/authors/${image}?webp`)}
-        type="image/webp"
-      />
-      <source srcSet={require(`@images/authors/${image}`)} type="image/png" />
       <img
-        src={require(`@images/authors/${image}`)}
+        src={getImageUrl(image)}
         loading="lazy"
         alt={name}
       />
@@ -48,9 +44,9 @@ const ProfileCard: React.FC<Props> = ({
     <S.Role>{role}</S.Role>
     <S.SocialLinks>
       {socialLinks.map((item) => (
-        <S.Link key={item.link}>
-          <a href={item.link} title={item.slug}>
-            {icons[item.slug]}
+        <S.Link key={item.url}>
+          <a href={item.url} title={item.title}>
+            {icons[item.title]}
           </a>
         </S.Link>
       ))}

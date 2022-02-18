@@ -4,22 +4,22 @@ import Heading from 'components/Heading'
 import Container from 'components/Container'
 import ProfileCard from 'components/ProfileCard'
 
-import content from './content'
 import * as S from './styles'
+import { SectionAboutUsProps } from 'types/strapi-api'
 
-const SectionAboutUs = () => (
+const SectionAboutUs = ({ title, authors }: SectionAboutUsProps) => (
   <Container>
-    <Heading reverseColor>Quem somos nós?</Heading>
+    <Heading reverseColor>{title}</Heading>
 
     <S.Content>
-      {content.map((profile) => (
+      {authors.data.map(({ attributes }) => (
         <ProfileCard
-          key={profile.name}
-          name={profile.name}
-          role={profile.role}
-          image={profile.image}
-          socialLinks={profile.socialLinks}
-          description={profile.description}
+          key={attributes.name}
+          name={attributes.name}
+          role={attributes.role}
+          image={attributes.photo.data.attributes.url}
+          socialLinks={attributes.socialLinks}
+          description={attributes.description}
         />
       ))}
     </S.Content>
