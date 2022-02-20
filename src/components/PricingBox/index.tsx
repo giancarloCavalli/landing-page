@@ -9,7 +9,13 @@ import { PricingBoxProps } from 'types/strapi-api'
 const onClick = () =>
   gaEvent({ action: 'click', category: 'buy', label: 'pricing box button' })
 
-const PricingBox = ({ totalPrice, numberInstallments, priceInstallment, benefits, button }: PricingBoxProps) => (
+const PricingBox = ({
+  totalPrice,
+  numberInstallments,
+  priceInstallment,
+  benefits,
+  button
+}: PricingBoxProps) => (
   <S.Box>
     <S.Prices>
       <S.FullPrice>
@@ -21,15 +27,13 @@ const PricingBox = ({ totalPrice, numberInstallments, priceInstallment, benefits
     </S.Prices>
     <S.BenefitsList dangerouslySetInnerHTML={{ __html: benefits }} />
 
-    <Button
-      href={button.url}
-      onClick={onClick}
-      withPrice
-    >
+    <Button href={button.url} onClick={onClick} withPrice>
       <p>{button.label}</p>
       <div>
         <S.ButtonFullPrice>R${totalPrice}</S.ButtonFullPrice>
-        <S.ButtonDiscountPrice>R${numberInstallments * priceInstallment}</S.ButtonDiscountPrice>
+        <S.ButtonDiscountPrice>
+          R${numberInstallments * priceInstallment}
+        </S.ButtonDiscountPrice>
       </div>
     </Button>
   </S.Box>
