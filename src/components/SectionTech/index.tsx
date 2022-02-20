@@ -14,7 +14,11 @@ const SectionTech = ({ title, techIcons }: SectionTechProps) => (
       <S.IconsContainer>
         {techIcons.map(({ title, image }) => (
           <S.Icon key={title}>
-            <S.Icons src={getImageUrl(image.data.attributes.url)} alt={image.data.attributes.alternativeText} loading="lazy" />
+            <S.Icons
+              src={getImageUrl(image.data.attributes.url)}
+              alt={image.data.attributes.alternativeText}
+              loading="lazy"
+            />
             <S.IconsName>{title}</S.IconsName>
           </S.Icon>
         ))}

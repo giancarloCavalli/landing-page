@@ -1,7 +1,14 @@
 import React from 'react'
 
 import { GrGithub } from 'react-icons/gr'
-import { FaDribbble, FaFacebook, FaInstagram, FaLinkedin, FaMedium, FaTwitter } from 'react-icons/fa'
+import {
+  FaDribbble,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaMedium,
+  FaTwitter
+} from 'react-icons/fa'
 
 import * as S from './styles'
 import { SocialLink } from 'types/strapi-api'
@@ -34,11 +41,7 @@ const ProfileCard: React.FC<Props> = ({
 }) => (
   <S.Card key={name}>
     <S.Image>
-      <img
-        src={getImageUrl(image)}
-        loading="lazy"
-        alt={name}
-      />
+      <img src={getImageUrl(image)} loading="lazy" alt={name} />
     </S.Image>
     <S.Name>{name}</S.Name>
     <S.Role>{role}</S.Role>

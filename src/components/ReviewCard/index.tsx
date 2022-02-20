@@ -32,11 +32,7 @@ const ReviewCard: React.FC<Props> = ({ id, name, image, description }) => {
     <S.Card>
       <S.User>
         <S.Image>
-          <img
-            src={getImageUrl(image)}
-            loading="lazy"
-            alt={name}
-          />
+          <img src={getImageUrl(image)} loading="lazy" alt={name} />
         </S.Image>
         <S.Name>{name}</S.Name>
       </S.User>
